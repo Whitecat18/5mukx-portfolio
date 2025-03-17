@@ -28,9 +28,9 @@ export default function BlogPost() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <h1 className="text-3xl md:text-4xl font-bold mb-4">
+              <h3 className="text-3xl md:text-4xl font-bold mb-4">
                 The Art of Learning Programming for Red Teaming and Cybersecurity
-              </h1>
+              </h3>
               <div className="flex items-center text-sm text-muted-foreground mb-6">
                 <span>November 11, 2024</span>
                 <span className="mx-2">•</span>
@@ -64,7 +64,7 @@ export default function BlogPost() {
 
             {/* Section 1 */}
             <section>
-              <h2>1. The Importance of Programming in Red Teaming</h2>
+              <h3>1. The Importance of Programming in Red Teaming</h3>
               <p>
                 Red teaming means playing the adversary to strengthen defenses. Here’s why programming is critical in this role:
               </p>
@@ -77,7 +77,7 @@ export default function BlogPost() {
 
             {/* Section 2 */}
             <section>
-              <h2>2. Choosing the Right Programming Languages for Red Teaming</h2>
+              <h3>2. Choosing the Right Programming Languages for Red Teaming</h3>
               <p>
                 Selecting languages that balance performance, control, and usability is key. Here’s a breakdown of top choices:
               </p>
@@ -119,7 +119,7 @@ export default function BlogPost() {
 
             {/* Section 3 */}
             <section>
-              <h2>3. Setting Up Your Development Environment</h2>
+              <h3>3. Setting Up Your Development Environment</h3>
               <p>
                 A robust setup ensures security and efficiency. Here’s what you’ll need:
               </p>
@@ -163,7 +163,7 @@ export default function BlogPost() {
 
             {/* Section 4 */}
             <section>
-              <h2>4. Core Concepts for Tool Development</h2>
+              <h3>4. Core Concepts for Tool Development</h3>
               <p>Master these fundamentals:</p>
               <ul>
                 <li><strong>Memory Management</strong>: Crucial for exploits (e.g., buffer overflows).</li>
@@ -176,7 +176,7 @@ export default function BlogPost() {
 
             {/* Section 5 */}
             <section>
-              <h2>5. Developing Your First Red Team Tools</h2>
+              <h3>5. Developing Your First Red Team Tools</h3>
               <p>Start with these practical projects:</p>
               <ul>
                 <li><strong>Keylogger</strong>: Learn stealth and I/O in Python, C, or Rust.</li>
@@ -188,7 +188,7 @@ export default function BlogPost() {
 
             {/* Section 6 */}
             <section>
-              <h2>6. Advanced Red Teaming Techniques</h2>
+              <h3>6. Advanced Red Teaming Techniques</h3>
               <p>Elevate your skills with these:</p>
               <ul>
                 <li><strong>Exploit Development</strong>:
@@ -207,7 +207,7 @@ export default function BlogPost() {
 
             {/* Section 7 */}
             <section>
-              <h2>7. Ethical Considerations and Legal Frameworks</h2>
+              <h3>7. Ethical Considerations and Legal Frameworks</h3>
               <p>Stay compliant:</p>
               <ul>
                 <li>Secure written permission for testing.</li>
@@ -218,7 +218,7 @@ export default function BlogPost() {
 
             {/* Section 8 */}
             <section>
-              <h2>8. Community Engagement and Continuous Learning</h2>
+              <h3>8. Community Engagement and Continuous Learning</h3>
               <p>Stay connected and grow:</p>
               <ul>
                 <li>Contribute to GitHub security projects.</li>
@@ -229,7 +229,7 @@ export default function BlogPost() {
 
             {/* Section 9 */}
             <section>
-              <h2>9. Conclusion: The Path Ahead</h2>
+              <h3>9. Conclusion: The Path Ahead</h3>
               <p>
                 Red teaming is a journey of continuous learning. Your tools will evolve, sharpening your cybersecurity expertise. The aim? To understand and secure systems.
               </p>
@@ -239,7 +239,7 @@ export default function BlogPost() {
 
             {/* Last Words */}
             <section>
-              <h2>Last Words, Credits, and Shoutouts</h2>
+              <h3>Last Words, Credits, and Shoutouts</h3>
               <p>
                 Hope this guide is your Swiss Army knife for red teaming! Loved it? Share it with the world—your support keeps me going.
               </p>
