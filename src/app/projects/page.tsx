@@ -3,9 +3,10 @@
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Github, Star, ArrowUpRight } from "lucide-react";
+import { Github, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import GitHubStars from "@/components/GitHubStars";
 
 const projects = [
   {
@@ -20,7 +21,7 @@ const projects = [
       "Malwares and Keyloggers etc..."
     ],
     link: "https://github.com/Whitecat18/Rust-for-Malware-Development",
-    // stars: 2030,
+    fallbackStars: 2031,
     tags: ["Rust", "Malware", "Red Teaming", "Security"]
   },
   {
@@ -29,7 +30,7 @@ const projects = [
     description: "A collection of PowerShell Scripts, Hacks, Tutorials etc. These are my complete resources that I coded to automate hacks, red team operations, and pentesting tasks.",
     longDescription: "This Repository contains all kinds of Hacks and PowerShell Tricks, from basics to advanced PowerShell commands and scripts that will help you in day-to-day life of an IT Sectors, cybersecurity or Windows Automation.",
     link: "https://github.com/Whitecat18/Powershell-Scripts-for-Hackers-and-Pentesters",
-    // stars: 399,
+    fallbackStars: 399,
     tags: ["PowerShell", "Hacking", "Windows", "Security"]
   },
   {
@@ -38,7 +39,7 @@ const projects = [
     description: "A Windows Activator using batch and PowerShell scripts that automatically activates Windows 10 and 11 within minutes.",
     longDescription: "Tested on Windows 10 and 11 versions. The code is open source, designed for educational purposes.",
     link: "https://github.com/Whitecat18/Windows-Activator",
-    // stars: 88,
+    fallbackStars: 88,
     tags: ["Windows", "Batch", "PowerShell", "Activation"]
   },
   {
@@ -47,7 +48,7 @@ const projects = [
     description: "An automated malicious JavaScript payload builder to receive various information through phishing.",
     longDescription: "Collects Public IP address, Live Location, Browser Usage, screen dimensions, Bookmarks, cookie status, Network Monitoring, and more through phishing techniques.",
     link: "https://github.com/Whitecat18/Javahexor",
-    // stars: 36,
+    fallbackStars: 36,
     tags: ["JavaScript", "Phishing", "Information Gathering", "Web Security"]
   }
 ];
@@ -139,10 +140,11 @@ export default function ProjectsPage() {
                     </div>
                   </CardContent>
                   <CardFooter className="flex justify-between items-center">
-                    <div className="flex items-center space-x-1 text-sm text-muted-foreground">
-                      <Star className="h-4 w-4 fill-yellow-500 text-yellow-500" />
-                      {/* <span>{project.stars}</span> */}
-                    </div>
+                    <GitHubStars
+                      repoUrl={project.link}
+                      fallbackCount={project.fallbackStars}
+                      className="text-muted-foreground"
+                    />
                     <Button asChild variant="outline" size="sm">
                       <Link href={project.link} target="_blank" className="flex items-center gap-2">
                         <Github className="h-4 w-4" />
