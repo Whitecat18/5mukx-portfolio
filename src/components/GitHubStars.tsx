@@ -18,6 +18,15 @@ export default function GitHubStars({
 }: GitHubStarsProps) {
   const repoInfo = extractRepoInfo(repoUrl);
 
+  const { data, error } = useSWR(
+    repoInfo ? `https://api.github.com/repos/${repoInfo.owner}/${repoInfo.repo}` : null,
+    fetcher,
+    {
+      fallbackData: { stargazers_count: fallbackCount },
+      revalidateOnFocus: false, // Optionally, prevent re-fetching on window focus
+    }
+  );
+
   if (!repoInfo) {
     return (
       <div className={`flex items-center space-x-1 text-sm ${className}`}>
@@ -26,16 +35,6 @@ export default function GitHubStars({
       </div>
     );
   }
-
-  const { owner, repo } = repoInfo;
-  const { data, error } = useSWR(
-    `https://api.github.com/repos/${owner}/${repo}`,
-    fetcher,
-    {
-      fallbackData: { stargazers_count: fallbackCount },
-      revalidateOnFocus: false, // Optionally, prevent re-fetching on window focus
-    }
-  );
 
   const starCount = data?.stargazers_count;
   const isLoading = !data && !error;
