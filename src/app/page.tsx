@@ -54,7 +54,7 @@ export default function Home() {
                 transition={{ delay: 0.4 }}
                 className="flex items-center gap-2"
               >
-                <Shield className="h-5 w-5 text-purple-500" />
+                <Shield className="h-5 w-5 text-red-500" />
                 <span>Red Teamer</span>
               </motion.div>
               <motion.div

@@ -1,6 +1,5 @@
 "use client";
-
-import { useState, useEffect } from "react";
+import useSWR from "swr";
 import { Star } from "lucide-react";
 import { extractRepoInfo } from "@/lib/github";
 
@@ -10,50 +9,50 @@ interface GitHubStarsProps {
   className?: string;
 }
 
-export default function GitHubStars({ repoUrl, fallbackCount = 0, className = "" }: GitHubStarsProps) {
-  const [starCount, setStarCount] = useState<number | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-  useEffect(() => {
-    const fetchStars = async () => {
-      try {
-        setLoading(true);
-        const repoInfo = extractRepoInfo(repoUrl);
+export default function GitHubStars({
+  repoUrl,
+  fallbackCount = 0,
+  className = "",
+}: GitHubStarsProps) {
+  const repoInfo = extractRepoInfo(repoUrl);
 
-        if (!repoInfo) {
-          throw new Error("Invalid GitHub URL");
-        }
+  if (!repoInfo) {
+    return (
+      <div className={`flex items-center space-x-1 text-sm ${className}`}>
+        <Star className="h-4 w-4" />
+        <span>Invalid URL</span>
+      </div>
+    );
+  }
 
-        const { owner, repo } = repoInfo;
+  const { owner, repo } = repoInfo;
+  const { data, error } = useSWR(
+    `https://api.github.com/repos/${owner}/${repo}`,
+    fetcher,
+    {
+      fallbackData: { stargazers_count: fallbackCount },
+      revalidateOnFocus: false, // Optionally, prevent re-fetching on window focus
+    }
+  );
 
-        const response = await fetch(`https://api.github.com/repos/${owner}/${repo}`);
-
-        if (!response.ok) {
-          throw new Error(`GitHub API error: ${response.status}`);
-        }
-
-        const data = await response.json();
-        setStarCount(data.stargazers_count);
-        setError(false);
-      } catch (err) {
-        console.error("Error fetching GitHub stars:", err);
-        setError(true);
-        setStarCount(fallbackCount);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchStars();
-  }, [repoUrl, fallbackCount]);
+  const starCount = data?.stargazers_count;
+  const isLoading = !data && !error;
 
   return (
-    <div className={`flex items-center space-x-1 text-sm ${className}`}>
-      <Star className="h-4 w-4 fill-yellow-500 text-yellow-500" />
-      <span>
-        {loading ? "..." : starCount?.toLocaleString() || fallbackCount.toLocaleString()}
-      </span>
+    <div
+      className={`flex items-center space-x-2 text-sm font-medium text-gray-400 ${className}`}
+    >
+      <div className="flex items-center gap-1 rounded-full bg-gray-800 px-3 py-1">
+        <Star className="h-4 w-4 fill-yellow-400 text-yellow-500" />
+        <span>
+          {isLoading
+            ? "..."
+            : starCount?.toLocaleString() || fallbackCount.toLocaleString()}
+        </span>
+      </div>
+      <span className="hidden sm:inline">stars</span>
     </div>
   );
 }

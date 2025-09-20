@@ -44,13 +44,6 @@ export default function Footer() {
           </div>
         </div>
 
-        <Separator className="my-4" />
-
-        <div className="flex justify-center md:justify-start">
-          <p className="text-xs text-muted-foreground text-center md:text-left">
-            HELP LIKE NO ONE, BUT DONT DEPEND ON ANYONE
-          </p>
-        </div>
       </div>
     </footer>
   );
