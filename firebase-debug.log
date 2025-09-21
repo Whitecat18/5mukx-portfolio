@@ -1,0 +1,73 @@
+[debug] [2025-09-20T15:19:23.590Z] ----------------------------------------------------------------------
+[debug] [2025-09-20T15:19:23.592Z] Command:       /nix/store/ws50yvm6vzlzf7jzz6n7xh4szddrack1-nodejs-20.19.1/bin/node /nix/store/wma3rvxxva78rqvnpja82nx5b3mclpxg-firebase-tools-14.15.2/lib/node_modules/firebase-tools/lib/bin/firebase.js deploy --only hosting
+[debug] [2025-09-20T15:19:23.593Z] CLI Version:   14.15.2
+[debug] [2025-09-20T15:19:23.593Z] Platform:      linux
+[debug] [2025-09-20T15:19:23.593Z] Node Version:  v20.19.1
+[debug] [2025-09-20T15:19:23.594Z] Time:          Sat Sep 20 2025 15:19:23 GMT+0000 (Coordinated Universal Time)
+[debug] [2025-09-20T15:19:23.594Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-09-20T15:19:23.961Z] Checked if tokens are valid: true, expires at: 1758384896875
+[debug] [2025-09-20T15:19:23.961Z] Checked if tokens are valid: true, expires at: 1758384896875
+[debug] [2025-09-20T15:19:23.965Z] >>> [apiv2][query] GET https://monospace-pa.googleapis.com/v1/workspaces/portfolio-46898083 [none]
+[debug] [2025-09-20T15:19:24.988Z] <<< [apiv2][status] GET https://monospace-pa.googleapis.com/v1/workspaces/portfolio-46898083 200
+[debug] [2025-09-20T15:19:24.990Z] <<< [apiv2][body] GET https://monospace-pa.googleapis.com/v1/workspaces/portfolio-46898083 {"workspaceId":"portfolio-46898083","name":"portfolio","workspaceRedirectUrl":"firebase-portfolio-1758375386018.cluster-qxqlf3vb3nbf2r42l5qfoebdry.cloudworkstations.dev","status":"WORKSPACE_STATUS_RUNNING","lastAccessDatetime":"2025-09-20T13:36:39.288571Z","workspaceTemplate":"WORKSPACE_TEMPLATE_BLANK_WEB","owner":"SELF","serviceAccountEmail":"msp-3657458160205255811@monospace-per-ws-sa-6.iam.gserviceaccount.com","gitRepoUrl":"https://github.com/Whitecat18/5mukx-portfolio","enableNix":true,"ownerEmail":"kavintorvalds@gmail.com","workstationAccessToken":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2Nsb3VkLmdvb2dsZS5jb20vd29ya3N0YXRpb25zIiwiYXVkIjoiZmlyZWJhc2UtcG9ydGZvbGlvLTE3NTgzNzUzODYwMTguY2x1c3Rlci1xeHFsZjN2YjNuYmYycjQybDVxZm9lYmRyeS5jbG91ZHdvcmtzdGF0aW9ucy5kZXYiLCJpYXQiOjE3NTgzODE1NjQsImV4cCI6MTc1ODQ2Nzk2NH0.RBBUYjcSYP5pSV2WXW1eSM2KFypXAdIVHFxlbIbkKTDhRIMZd33fpCmhx_sZJbF3ZViyEHRKgEgFxFFrje87N0yRNHWlSR4u2kfRIah_VdxKqsnF76exO8vvxai-MKXZLqK2a7i3kzesl5FW_b1uMIPiOsrbnJQ5gvqtfLQW4XbCel4MBlY0BvOVHnz940fCiMWJOKMwsT_jgmk1LD7LCWo0ZXQdJePteha3y9musm0-RD7CreITRc_a4EE6S_qEB9kQytnAWtDXTGW7u4j4CcE2kgskHQ-Ogy4jwv-NQre-ukXdksHsOFFAP9zMGvQKdUOa6aoGpDOWup3yxL_UcA"}
+[info] Updating Studio Workspace active project to match Firebase CLI 'smukx-site'
+[debug] [2025-09-20T15:19:24.991Z] Checked if tokens are valid: true, expires at: 1758384896875
+[debug] [2025-09-20T15:19:24.991Z] Checked if tokens are valid: true, expires at: 1758384896875
+[debug] [2025-09-20T15:19:24.998Z] >>> [apiv2][query] PATCH https://monospace-pa.googleapis.com/v1/workspaces/portfolio-46898083 updateMask=workspace.firebaseProjectId
+[debug] [2025-09-20T15:19:24.998Z] >>> [apiv2][body] PATCH https://monospace-pa.googleapis.com/v1/workspaces/portfolio-46898083 {"firebaseProjectId":"smukx-site"}
+[debug] [2025-09-20T15:19:26.245Z] <<< [apiv2][status] PATCH https://monospace-pa.googleapis.com/v1/workspaces/portfolio-46898083 200
+[debug] [2025-09-20T15:19:26.245Z] <<< [apiv2][body] PATCH https://monospace-pa.googleapis.com/v1/workspaces/portfolio-46898083 {"workspaceId":"portfolio-46898083","name":"portfolio","workspaceRedirectUrl":"firebase-portfolio-1758375386018.cluster-qxqlf3vb3nbf2r42l5qfoebdry.cloudworkstations.dev","status":"WORKSPACE_STATUS_RUNNING","lastAccessDatetime":"2025-09-20T13:36:39.288571Z","workspaceTemplate":"WORKSPACE_TEMPLATE_BLANK_WEB","serviceAccountEmail":"msp-3657458160205255811@monospace-per-ws-sa-6.iam.gserviceaccount.com","gitRepoUrl":"https://github.com/Whitecat18/5mukx-portfolio","enableNix":true,"firebaseProjectId":"smukx-site"}
+[debug] [2025-09-20T15:19:26.261Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-09-20T15:19:26.262Z] > authorizing via signed-in user (kavintorvalds@gmail.com)
+[debug] [2025-09-20T15:19:26.262Z] [iam] checking project smukx-site for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-09-20T15:19:26.262Z] Checked if tokens are valid: true, expires at: 1758384896875
+[debug] [2025-09-20T15:19:26.263Z] Checked if tokens are valid: true, expires at: 1758384896875
+[debug] [2025-09-20T15:19:26.263Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/smukx-site:testIamPermissions [none]
+[debug] [2025-09-20T15:19:26.263Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/smukx-site:testIamPermissions x-goog-quota-user=projects/smukx-site
+[debug] [2025-09-20T15:19:26.263Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/smukx-site:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-09-20T15:19:26.448Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/smukx-site:testIamPermissions 200
+[debug] [2025-09-20T15:19:26.448Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/smukx-site:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-09-20T15:19:26.449Z] Checked if tokens are valid: true, expires at: 1758384896875
+[debug] [2025-09-20T15:19:26.451Z] Checked if tokens are valid: true, expires at: 1758384896875
+[debug] [2025-09-20T15:19:26.451Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/smukx-site [none]
+[debug] [2025-09-20T15:19:26.723Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/smukx-site 200
+[debug] [2025-09-20T15:19:26.724Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/smukx-site {"projectId":"smukx-site","projectNumber":"657681825838","displayName":"portfolio","name":"projects/smukx-site","resources":{"hostingSite":"smukx-site"},"state":"ACTIVE","etag":"1_2f497f06-8b94-41e6-b8c1-aa3684851d21"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 15.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2025-09-20T15:19:32.781Z] Checked if tokens are valid: true, expires at: 1758384896875
+[debug] [2025-09-20T15:19:32.781Z] Checked if tokens are valid: true, expires at: 1758384896875
+[debug] [2025-09-20T15:19:32.784Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/smukx-site/sites/smukx-site [none]
+[debug] [2025-09-20T15:19:33.143Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/smukx-site/sites/smukx-site 200
+[debug] [2025-09-20T15:19:33.144Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/smukx-site/sites/smukx-site {"name":"projects/smukx-site/sites/smukx-site","defaultUrl":"https://smukx-site.web.app","type":"DEFAULT_SITE"}
+[info]    ▲ Next.js 15.5.3
+
+[info] 
+
+[info]    Creating an optimized production build ...
+
+[info]  ✓ Compiled successfully in 27.6s
+
+[info]    Linting and checking validity of types ...
+
+[info] 
+Failed to compile.
+
+[info] 
+./src/components/GitHubStars.tsx
+31:27  Error: React Hook "useSWR" is called conditionally. React Hooks must be called in the exact same order in every component render.  react-hooks/rules-of-hooks
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
+
+[debug] [2025-09-20T15:20:23.127Z] Error: ENOENT: no such file or directory, open '/home/user/5mukx-portfolio/.next/export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.

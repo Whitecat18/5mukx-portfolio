@@ -2,11 +2,17 @@
 
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Code, Shield, Terminal } from "lucide-react";
+import { ArrowRight, Code, Shield, Terminal, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { blogPosts as allBlogPosts } from "@/lib/blogData";
 
 const MotionLink = motion(Link);
+
+const latestPosts = allBlogPosts
+  .filter(post => !post.isComingSoon)
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  .slice(0, 2);
 
 export default function Home() {
   const container = {
@@ -54,7 +60,7 @@ export default function Home() {
                 transition={{ delay: 0.4 }}
                 className="flex items-center gap-2"
               >
-                <Shield className="h-5 w-5 text-purple-500" />
+                <Shield className="h-5 w-5 text-red-500" />
                 <span>Red Teamer</span>
               </motion.div>
               <motion.div
@@ -197,45 +203,28 @@ export default function Home() {
             viewport={{ once: true }}
             className="grid grid-cols-1 md:grid-cols-2 gap-8"
           >
-            {/* Blog Post 1 */}
-            <motion.div variants={item} className="group">
-              <MotionLink
-                href="/blog/programming-for-infosec"
-                className="block p-6 bg-secondary/30 rounded-lg border border-border hover:border-purple-500/50 transition-all duration-300"
-                whileHover={{ y: -5 }}
-              >
-                <p className="text-sm text-muted-foreground mb-2">Nov 11, 2024 • 10 min read</p>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors">
-                  The Art of Learning Programming for Red Teaming and CyberSecurity
-                </h3>
-                <p className="text-muted-foreground mb-4">
-                  Exploring the importance of programming skills in red teaming operations and cybersecurity engagements
-                </p>
-                <div className="flex items-center text-sm text-purple-400">
-                  Read article <ArrowRight className="ml-1 h-3 w-3" />
-                </div>
-              </MotionLink>
-            </motion.div>
-
-            {/* Blog Post 2 */}
-            <motion.div variants={item} className="group">
-              <MotionLink
-                href="/blog/malware-essentials"
-                className="block p-6 bg-secondary/30 rounded-lg border border-border hover:border-purple-500/50 transition-all duration-300"
-                whileHover={{ y: -5 }}
-              >
-                <p className="text-sm text-muted-foreground mb-2">Mar 27, 2024 • 9 min read</p>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors">
-                  Malware Development Essentials Part 1
-                </h3>
-                <p className="text-muted-foreground mb-4">
-                  A comprehensive guide to the fundamentals of malware development, covering core concepts and techniques
-                </p>
-                <div className="flex items-center text-sm text-purple-400">
-                  Read article <ArrowRight className="ml-1 h-3 w-3" />
-                </div>
-              </MotionLink>
-            </motion.div>
+            {latestPosts.map((post) => (
+              <motion.div variants={item} className="group" key={post.id}>
+                <MotionLink
+                  href={post.slug}
+                  target={post.isExternal ? "_blank" : "_self"}
+                  className="block p-6 bg-secondary/30 rounded-lg border border-border hover:border-purple-500/50 transition-all duration-300 h-full"
+                  whileHover={{ y: -5 }}
+                >
+                  <p className="text-sm text-muted-foreground mb-2">{post.date} &bull; {post.readTime}</p>
+                  <h3 className="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-4">
+                    {post.description}
+                  </p>
+                  <div className="flex items-center text-sm text-purple-400 mt-auto">
+                    {post.isExternal ? 'Read on external site' : 'Read article'} 
+                    {post.isExternal ? <ExternalLink className="ml-1 h-3 w-3" /> : <ArrowRight className="ml-1 h-3 w-3" />}
+                  </div>
+                </MotionLink>
+              </motion.div>
+            ))}
           </motion.div>
 
           <div className="text-center mt-12">
