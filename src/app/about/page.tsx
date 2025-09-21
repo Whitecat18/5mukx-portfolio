@@ -1,65 +1,41 @@
 'use client';
 
-import PageLayout from '@/components/PageLayout';
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
-import { Github, Twitter, BookText, Mail, Fingerprint, Copy, Check } from 'lucide-react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { useState, useCallback } from 'react';
+import PageLayout from "@/components/PageLayout";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { Github, Twitter, BookText } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function AboutPage() {
   const socialLinks = [
     {
       name: 'Twitter',
       icon: <Twitter className="h-5 w-5" />,
-      href: 'https://x.com/5mukx',
+      href: "https://x.com/5mukx",
+      color: "text-blue-400"
     },
     {
       name: 'GitHub',
       icon: <Github className="h-5 w-5" />,
-      href: 'https://github.com/Whitecat18',
+      href: "https://github.com/Whitecat18",
+      color: "text-gray-400"
     },
     {
       name: 'Medium',
       icon: <BookText className="h-5 w-5" />,
-      href: 'https://smukx.medium.com/',
-    },
+      href: "https://smukx.medium.com/",
+      color: "text-green-400"
+    }
   ];
 
-  const contactDetails = [
-    {
-      name: 'Twitter / DM',
-      value: '@5mukx',
-      href: 'https://x.com/5mukx',
-      icon: <Twitter className="h-5 w-5 text-purple-400" />,
-    },
-    {
-      name: 'Mail',
-      value: 'smukx@proton.me',
-      href: 'mailto:smukx@proton.me',
-      icon: <Mail className="h-5 w-5 text-purple-400" />,
-    },
-    {
-      name: 'TOX ID',
-      value: '3DFBC2AF2419FC045A2AFD2FBCC07F5B578F2374C7EC90A3910EA821D8247628D8004BF964B9',
-      icon: <Fingerprint className="h-5 w-5 text-purple-400" />,
-      copyable: true,
-    },
+  const skills = [
+    "Rust", "C/C++", "Python", "Malware Development", 
+    "Reverse Engineering", "Exploit Development",
+    "Network Analysis", "Red Teaming", "Cloud Security"
   ];
-
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = useCallback((text: string) => {
-    if (copied) return;
-    navigator.clipboard.writeText(text).then(() => {
-      setCopied(true);
-      setTimeout(() => {
-        setCopied(false);
-      }, 2000);
-    });
-  }, [copied]);
 
   return (
     <PageLayout>
@@ -100,48 +76,48 @@ export default function AboutPage() {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-secondary/20 p-8 rounded-2xl border border-border shadow-inner"
-          >
-            <h2 className="text-3xl font-bold mb-6 text-center">About Me</h2>
-            <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-10">
-              Hello. I'm a Malware Researcher, Red teamer and freelancer. 
-              Follow me for more cool and informative blogs.
-            </p>
+            <div className="md:col-span-2">
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4 }}
+              >
+                <Card className="bg-secondary/20 p-6">
+                  <div className="prose dark:prose-invert max-w-none">
+                    <h3 className="text-xl font-bold mb-4">Hello friend</h3>
 
-            <Separator className="my-10 bg-border/50" />
+                    <p className="text-muted-foreground mb-4">
+                      Hello friend, your friendly neighborhood 5mukx here. My name is Kavin, i am 20 years old who's really into security stuff like red teaming and making malware. When I'm not coding, i am engaged with cloud activities like deployment and scaling, Full stack development.
+                    </p>
 
-            <h3 className="text-2xl font-bold mb-6 text-center">Contact Details</h3>
-            <p className="text-md text-muted-foreground text-center max-w-2xl mx-auto mb-8">
-              We are selling private red teaming tools for red teaming engagements, after verification, our team will assists you helping with your needs.
-            </p>
-            <div className="max-w-md mx-auto space-y-4">
-              {contactDetails.map((detail) => (
-                <div key={detail.name} className="flex items-center bg-background/50 p-4 rounded-lg border border-border">
-                  {detail.icon}
-                  <div className="ml-4 flex-1 overflow-hidden">
-                    <p className="text-sm font-bold text-foreground">{detail.name}</p>
-                    <div className="flex items-center justify-between gap-2">
-                        {detail.href ? (
-                            <Link href={detail.href} target={detail.href.startsWith('mailto:') ? '_self' : '_blank'} className="text-sm text-muted-foreground break-all hover:text-purple-400 transition-colors">{detail.value}</Link>
-                        ) : (
-                            <p className="text-sm text-muted-foreground break-all">{detail.value}</p>
-                        )}
-                        {detail.copyable && (
-                            <Button variant="ghost" size="icon" onClick={() => handleCopy(detail.value)} className="h-8 w-8 flex-shrink-0">
-                                {copied ? <Check className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4 text-muted-foreground" />}
-                            </Button>
-                        )}
+                    <h3 className="text-xl font-bold mb-4 mt-8">Skills & Expertise</h3>
+
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-3 py-1 bg-secondary rounded-full text-sm font-medium"
+                        >
+                          {skill}
+                        </span>
+                      ))}
                     </div>
+
+                    <Separator className="my-6" />
+
+                    <div className="bg-secondary/30 p-4 rounded-lg border border-border mb-6">
+                      <h4 className="text-lg font-bold text-purple-400 mb-2">Legal Disclaimer</h4>
+                      <p className="text-sm text-muted-foreground">
+                        The information you gather from this site, social accounts, blogs, all the techniques, proofs-of-concept code, or whatever else you may possibly find here, are strictly for educational purposes. I do not condone the usage of anything you might gather from this blog or my videos for malicious purposes.
+                      </p>
+                    </div>
+
+                    <h4 className="text-lg font-bold text-center">HELP LIKE NO ONE, BUT DONT DEPEND ON ANYONE</h4>
                   </div>
-                </div>
-              ))}
+                </Card>
+              </motion.div>
             </div>
-            
-          </motion.div>
+          </div>
         </div>
       </div>
     </PageLayout>

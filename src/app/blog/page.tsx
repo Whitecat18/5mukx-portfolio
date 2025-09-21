@@ -4,15 +4,65 @@ import PageLayout from "@/components/PageLayout";
 import { motion } from "framer-motion";
 import { ArrowRight, ExternalLink, Calendar, Clock } from "lucide-react";
 import Link from "next/link";
-import { blogPosts as allBlogPosts } from "@/lib/blogData";
 
-const blogPosts = allBlogPosts.sort((a, b) => {
-  if (a.isComingSoon) return 1;
-  if (b.isComingSoon) return -1;
-  return new Date(b.date).getTime() - new Date(a.date).getTime();
-});
-
-const MotionLink = motion(Link);
+const blogPosts = [
+  {
+    id: "programming-for-infosec",
+    title: "The art of Learning Programming for Red teaming and CyberSecurity",
+    date: "Nov 11, 2024",
+    readTime: "10 min read",
+    slug: "/blog/programming-for-infosec",
+    description: "This is a Blog Covering the Importance of learning programming for Red Teaming and CyberSecurity Engagements. If anyone says 'programming is not applicable for red team' fkem..",
+    tags: ["Programming", "Red Teaming", "Skills"],
+    externalLink: "https://5mukx.site/blog/11-02-2024/the_art_of_learning_programming_for_infosec.html",
+    isExternal: false
+  },
+  {
+    id: "malware-essentials",
+    title: "Malware Development Essentials Part 1",
+    date: "Mar 27, 2024",
+    readTime: "9 min read",
+    slug: "/blog/malware-essentials",
+    description: "Become an Beginner to Intermediate on Maldev field. This covers Fundamentals, core concepts, Functions, OS Internets and more…",
+    tags: ["malware", "windows", "Basics", "Kernels"],
+    externalLink: "https://systemweakness.com/malware-development-essentials-part-1-5f4626652ed9",
+    isExternal: true
+  },
+  {
+    id: "rust-cyber-security",
+    title: "Rust for Cyber Security and Red Teaming",
+    date: "Jan 24, 2024",
+    readTime: "8 min read",
+    slug: "/blog/rust-cyber-security",
+    description: "This blog covers about short Introduction of Rust and where you should start learning the basics to advance and how to implement it in Cyber Security, red teaming, Tool development. Providing you A..Z Resources to Kick Start into Rust.",
+    tags: ["malware", "security", "windows", "Rust"],
+    externalLink: "https://medium.com/bugbountywriteup/rust-for-cyber-security-and-red-teaming-275595d3fdec",
+    isExternal: true
+  },
+  {
+    id: "docker-privilege-escalation",
+    title: "Docker Privilege Escalation",
+    date: "Oct 2, 2024",
+    readTime: "4 min read",
+    slug: "/blog/docker-privilege-escalation",
+    description: "From normal to R00T user using this simple technique on Docker.",
+    tags: ["docker", "security", "privilege-escalation"],
+    externalLink: "https://medium.com/@smukx/docker-privilege-escalation-18dceb7cf0d3",
+    isExternal: true
+  },
+  {
+    id: "self-deletion-technique",
+    title: "Self-deletion technique using Alternate data stream",
+    date: "Coming Soon",
+    readTime: "Coming Soon",
+    slug: "/blog/self-deletion-technique",
+    description: "This article discusses the innovative self-deletion technique using the alternate data stream in Windows. A deep dive into how this can be implemented securely, its implications, and the potential security risks involved.",
+    tags: ["malware", "security", "windows", "Rust"],
+    externalLink: "",
+    isExternal: false,
+    isComingSoon: true
+  }
+];
 
 export default function BlogPage() {
   const container = {
@@ -52,20 +102,26 @@ export default function BlogPage() {
             className="grid grid-cols-1 md:grid-cols-2 gap-8"
           >
             {blogPosts.map((post) => (
-              <motion.div key={post.id} variants={item}>
-                <MotionLink
-                  href={post.isComingSoon ? "#" : (post.isExternal ? post.slug : post.slug)}
-                  target={post.isExternal ? "_blank" : "_self"}
-                  className={`flex flex-col h-full bg-secondary/30 p-6 rounded-lg border border-border transition-all duration-300 ${post.isComingSoon ? "opacity-60 cursor-not-allowed" : "hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/10 hover:-translate-y-1"}`}
-                >
-                  <h2 className="text-xl font-bold mb-3 flex-grow">
-                    {post.title}
-                  </h2>
-                  
-                  <div className="text-sm text-muted-foreground mb-4 space-y-2">
-                    <div className="flex items-center"><Calendar className="h-4 w-4 mr-2"/> {post.date}</div>
-                    {!post.isComingSoon && <div className="flex items-center"><Clock className="h-4 w-4 mr-2"/> {post.readTime}</div>}
-                  </div>
+              <motion.article
+                key={post.id}
+                variants={item}
+                id={post.id}
+                className="scroll-mt-20"
+              >
+                <div className={`${post.isComingSoon ? "opacity-70" : ""}`}>
+                  <Link
+                    href={post.isComingSoon ? "#" : (post.isExternal ? post.externalLink : post.slug)}
+                    target={post.isExternal ? "_blank" : "_self"}
+                    className={`${!post.isComingSoon ? "hover:text-purple-400" : "cursor-not-allowed"} transition-colors`}
+                  >
+                    <h2 className="text-2xl md:text-3xl font-bold mb-2 transition-colors">
+                      {post.title} {post.isExternal && <span className="text-xs align-top">↗</span>}
+                    </h2>
+                  </Link>
+
+                  <p className="text-sm text-muted-foreground mb-4">
+                    {post.date} • {post.readTime}
+                  </p>
 
                   <p className="text-muted-foreground mb-4 text-sm flex-grow">
                     {post.description}
