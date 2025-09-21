@@ -21,7 +21,7 @@ const projects = [
       "Malwares and Keyloggers etc..."
     ],
     link: "https://github.com/Whitecat18/Rust-for-Malware-Development",
-    fallbackStars: 2031,
+    fallbackStars: 2670,
     tags: ["Rust", "Malware", "Red Teaming", "Security"]
   },
   {
@@ -30,7 +30,7 @@ const projects = [
     description: "A collection of PowerShell Scripts, Hacks, Tutorials etc. These are my complete resources that I coded to automate hacks, red team operations, and pentesting tasks.",
     longDescription: "This Repository contains all kinds of Hacks and PowerShell Tricks, from basics to advanced PowerShell commands and scripts that will help you in day-to-day life of an IT Sectors, cybersecurity or Windows Automation.",
     link: "https://github.com/Whitecat18/Powershell-Scripts-for-Hackers-and-Pentesters",
-    fallbackStars: 399,
+    fallbackStars: 442,
     tags: ["PowerShell", "Hacking", "Windows", "Security"]
   },
   {
@@ -39,7 +39,7 @@ const projects = [
     description: "A Windows Activator using batch and PowerShell scripts that automatically activates Windows 10 and 11 within minutes.",
     longDescription: "Tested on Windows 10 and 11 versions. The code is open source, designed for educational purposes.",
     link: "https://github.com/Whitecat18/Windows-Activator",
-    fallbackStars: 88,
+    fallbackStars: 112,
     tags: ["Windows", "Batch", "PowerShell", "Activation"]
   },
   {
@@ -48,7 +48,7 @@ const projects = [
     description: "An automated malicious JavaScript payload builder to receive various information through phishing.",
     longDescription: "Collects Public IP address, Live Location, Browser Usage, screen dimensions, Bookmarks, cookie status, Network Monitoring, and more through phishing techniques.",
     link: "https://github.com/Whitecat18/Javahexor",
-    fallbackStars: 36,
+    fallbackStars: 56,
     tags: ["JavaScript", "Phishing", "Information Gathering", "Web Security"]
   }
 ];
