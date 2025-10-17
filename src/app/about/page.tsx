@@ -37,9 +37,15 @@ export default function AboutPage() {
     },
     {
       name: 'Mail',
-      value: 'smukx@5mukx.site',
-      href: 'mailto:smukx@5mukx.site',
+      value: 'smukx@proton.me',
+      href: 'mailto:smukx@proton.me',
       icon: <Mail className="h-5 w-5 text-purple-400" />,
+    },
+    {
+      name: 'TOX ID',
+      value: '3DFBC2AF2419FC045A2AFD2FBCC07F5B578F2374C7EC90A3910EA821D8247628D8004BF964B9',
+      icon: <Fingerprint className="h-5 w-5 text-purple-400" />,
+      copyable: true,
     },
   ];
 
