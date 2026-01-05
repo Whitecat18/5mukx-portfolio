@@ -41,12 +41,12 @@ export default function AboutPage() {
       href: 'mailto:smukx@proton.me',
       icon: <Mail className="h-5 w-5 text-purple-400" />,
     },
-    {
-      name: 'TOX ID',
-      value: '3DFBC2AF2419FC045A2AFD2FBCC07F5B578F2374C7EC90A3910EA821D8247628D8004BF964B9',
-      icon: <Fingerprint className="h-5 w-5 text-purple-400" />,
-      copyable: true,
-    },
+    // {
+    //   name: 'TOX ID',
+    //   value: '3DFBC2AF2419FC045A2AFD2FBCC07F5B578F2374C7EC90A3910EA821D8247628D8004BF964B9',
+    //   icon: <Fingerprint className="h-5 w-5 text-purple-400" />,
+    //   copyable: true,
+    // },
   ];
 
   const [copied, setCopied] = useState(false);
@@ -115,9 +115,6 @@ export default function AboutPage() {
             <Separator className="my-10 bg-border/50" />
 
             <h3 className="text-2xl font-bold mb-6 text-center">Contact Details</h3>
-            <p className="text-md text-muted-foreground text-center max-w-2xl mx-auto mb-8">
-              We are selling private red teaming tools for red teaming engagements, after verification, our team will assists you helping with your needs.
-            </p>
             <div className="max-w-md mx-auto space-y-4">
               {contactDetails.map((detail) => (
                 <div key={detail.name} className="flex items-center bg-background/50 p-4 rounded-lg border border-border">
@@ -130,11 +127,11 @@ export default function AboutPage() {
                         ) : (
                             <p className="text-sm text-muted-foreground break-all">{detail.value}</p>
                         )}
-                        {detail.copyable && (
+                        {/* {detail.copyable && (
                             <Button variant="ghost" size="icon" onClick={() => handleCopy(detail.value)} className="h-8 w-8 flex-shrink-0">
                                 {copied ? <Check className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4 text-muted-foreground" />}
                             </Button>
-                        )}
+                        )} */}
                     </div>
                   </div>
                 </div>
